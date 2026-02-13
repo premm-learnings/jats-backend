@@ -1,0 +1,13 @@
+package com.prem.jats.jats_backend;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class JatsBackendApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(JatsBackendApplication.class, args);
+	}
+
+}
