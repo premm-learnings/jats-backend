@@ -1,13 +1,10 @@
-# -------- BUILD STAGE --------
+# Step 1: Build the application using Maven
 FROM maven:3.9.6-eclipse-temurin-21 AS build
-WORKDIR /app
-COPY pom.xml .
-COPY src ./src
+COPY . .
 RUN mvn clean package -DskipTests
 
-# -------- RUN STAGE --------
-FROM eclipse-temurin:21-jdk-alpine
-WORKDIR /app
-COPY --from=build /app/target/*.jar app.jar
+# Step 2: Run the compiled application jar file
+FROM eclipse-temurin:21-jre-jammy
+COPY --from=build /target/*.jar app.jar
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","app.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
