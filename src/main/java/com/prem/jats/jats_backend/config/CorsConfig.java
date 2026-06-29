@@ -17,7 +17,7 @@ public class CorsConfig {
         CorsConfiguration config = new CorsConfiguration();
 
         // ✅ Allow frontend origin
-        config.setAllowedOrigins(List.of("http://localhost:5173","https://jats-frontend.onrender.com"));
+        config.setAllowedOrigins(List.of("http://localhost:5173","https://jats-five.vercel.app"));
 
         // ✅ Allow HTTP methods
         config.setAllowedMethods(
